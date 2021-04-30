@@ -1,6 +1,6 @@
 
 library(reshape2) 
-library(lubridate)
+
 
 bubbles <- read.csv("bubbles.csv")
 
