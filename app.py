@@ -2,8 +2,9 @@
 
 import pandas as pd
 import plotly.express as px
-import chart_studio 
-import chart_studio.plotly as py
+
+# Import Configuration File with your mapbox access token
+
 
 import config 
 
@@ -12,6 +13,8 @@ import config
 
 px.set_mapbox_access_token(config.mapbox_token)
 
+# Import CSV file 
+
 df  = pd.read_csv('bubbleslongclean.csv') 
 
 point = dict(lat='')
@@ -19,7 +22,6 @@ point = dict(lat='')
 fig = px.scatter_mapbox(df, lat="LAT", lon="LONG", color="INC", size="INC",
 				animation_frame = 'DATA', animation_group = 'INC',
 				mapbox_style='dark',
-                  #color_continuous_scale=px.colors.cyclical.Twilight, 
                   color_continuous_scale=px.colors.sequential.Inferno,
                   size_max=60, 
                   hover_name='CONCELHO', 
