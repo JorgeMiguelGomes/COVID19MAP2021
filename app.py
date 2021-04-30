@@ -18,8 +18,6 @@ px.set_mapbox_access_token(config.mapbox_token)
 
 df  = pd.read_csv('bubbleslongclean.csv') 
 
-point = dict(lat='')
-
 fig = px.scatter_mapbox(df, lat="LAT", lon="LONG", color="INC", size="INC",
 				animation_frame = 'DATA', animation_group = 'INC',
 				mapbox_style='dark',
