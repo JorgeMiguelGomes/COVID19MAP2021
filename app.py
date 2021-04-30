@@ -2,6 +2,7 @@
 
 import pandas as pd
 import plotly.express as px
+import plotly.io as pio 
 
 # Import Configuration File with your mapbox access token
 
@@ -34,7 +35,8 @@ fig.update_layout(font_size=16,
         		  mapbox_style = "mapbox://styles/vostpt/cko3z46ny0qm817qsgr6a516d")
 
 
-fig.show()
+pio.write_html(fig, file="index.html", auto_open=True)
+
 
 
 
