@@ -6,9 +6,7 @@ import plotly.io as pio
 
 # Import Configuration File with your mapbox access token
 
-
 import config 
-
 
 #Setup Mapbox Token
 
@@ -16,11 +14,23 @@ px.set_mapbox_access_token(config.mapbox_token)
 
 # Import CSV file 
 
-df  = pd.read_csv('bubbleslongclean.csv') 
+df = pd.read_csv('bubbles.csv')
+
+# Transform wide format to long format 
+
+dates = df.columns[4:]
+
+bubbleslong = pd.melt(df, id_vars = ['CONCELHO','LAT','LONG'],
+                      value_vars=dates,     
+                      var_name='DATA',
+                      value_name='INC'
+                      )
+
+
 
 # Plot the map 
 
-fig = px.scatter_mapbox(df, lat="LAT", lon="LONG", color="INC", size="INC",
+fig = px.scatter_mapbox(bubbleslong, lat="LAT", lon="LONG", color="INC", size="INC",
                         animation_frame = 'DATA', animation_group = 'INC',
                         mapbox_style='dark',
                         color_continuous_scale=px.colors.sequential.Inferno,
