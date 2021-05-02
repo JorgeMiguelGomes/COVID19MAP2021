@@ -4,8 +4,7 @@ An animated scatter map
 ## WHAT YOU WILL NEED 
 **Python**	
 pandas + plotly + plotly.io 
-**RStudio**
-reshape2
+
 
 **MAPBOX**
 You will need a Mapbox token that you can get from Mapbox
